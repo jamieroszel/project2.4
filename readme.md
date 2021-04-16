@@ -1,6 +1,6 @@
-# Project Name
+# Markdown Dev Blog
 
-- **Author:** dfadfadfadfsfa
+- **Author:** Jamie Roszel
 - **Link to Live Site:** fdfadadfadfsdfadfadf
 
 
