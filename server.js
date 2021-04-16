@@ -1,12 +1,12 @@
-// grab environment variables
-require("dotenv").config();
 // IMPORT EXPRESS
 const express = require("express");
-// Import articleRouter
-const articleRouter = require('./routes/articles')
-
 // IMPORT DATABASE CONNECTION
 const mongoose = require("./db/connection");
+const Article = require('./models/article')
+const articleRouter = require('./routes/articles')
+
+// grab environment variables
+require("dotenv").config();
 // IMPORT MERCED LOGGER
 const { log } = require("mercedlogger");
 //IMPORT MIDDLEWARE
@@ -26,23 +26,11 @@ const connect = require("connect-mongodb-session")(session) // store cookies in 
 
 const app = express();
 
-app.set('view engine', 'ejs')
-
-app.use('/articles', articleRouter)
-
-app.get('/', (req, res)=>{
-    const articles = [{
-        title: 'Test Article',
-        createdAt: new Date(),
-        description: 'Test description'
-    }]
-    res.render('articles/index', { articles: articles })
-})
-
 /////////////////////////////////////
 // Set the View Engine
 /////////////////////////////////////
 app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: false }))
 
 /////////////////////////////////////
 // Setup Middleware
@@ -70,9 +58,17 @@ app.use(
   })
 );
 
+/////////////////////////////////////
+// Routes and Routers
+/////////////////////////////////////
+app.get('/', async (req, res) => {
+    const articles = await Article.find().sort({ createdAt: 'desc' })
+    res.render('articles/index', { articles: articles })
+  })
 
-// tell the app to use the articleRouter
-app.use('/articles', articleRouter) //every route will be added to the end of /articles
+  app.use('/articles', articleRouter)
+
+
 /////////////////////////////////////
 // App Listener
 /////////////////////////////////////
