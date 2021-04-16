@@ -2,11 +2,13 @@
 <html lang="en">
     <!-- THE HEAD TAG PARTIAL -->
     <%- include ("../partials/head") %>
-<body>
+<body class="bg-secondary">
           <!-- THE HEADER TAG PARTIAL -->
           <%- include("../partials/header") %>
   <div class="container">
-    <h1 class="mb-4 mt-4 text-center">Markdown Dev</h1>
+    <h1 class="mb-2 mt-4 text-center">Markdown Dev</h1>
+    <h2 class="text-center text-white">Using the simplest tool for the job</h2>
+    <hr>
 
     <% articles.forEach(article => { %>
       <div class="card my-4 bg-light">
