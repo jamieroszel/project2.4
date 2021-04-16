@@ -6,7 +6,7 @@
           <!-- THE HEADER TAG PARTIAL -->
           <%- include("../partials/header") %>
   <div class="container">
-    <h1 class="mb-4">Markdown Dev</h1>
+    <h1 class="mb-4 mt-4 text-center">Markdown Dev</h1>
     <a href="/articles/new" class="btn btn-success">New Article</a>
 
     <% articles.forEach(article => { %>
@@ -17,8 +17,8 @@
             <%= article.createdAt.toLocaleDateString() %>
           </div>
           <div class="card-text mb-2"><%= article.description %></div>
-          <a href="articles/<%= article.slug %>" class="btn btn-primary">Read More</a>
-          <a href="articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
+          <a href="articles/<%= article.slug %>" class="btn btn-primary mr-3">Read More</a>
+          <a href="articles/edit/<%= article.id %>" class="btn btn-info mr-3">Edit</a>
           <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
             <button type="submit" class="btn btn-danger">Delete</button>
           </form>
