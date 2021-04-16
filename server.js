@@ -2,6 +2,9 @@
 require("dotenv").config();
 // IMPORT EXPRESS
 const express = require("express");
+// Import articleRouter
+const articleRouter = require('./routes/articles')
+
 // IMPORT DATABASE CONNECTION
 const mongoose = require("./db/connection");
 // IMPORT MERCED LOGGER
@@ -25,8 +28,15 @@ const app = express();
 
 app.set('view engine', 'ejs')
 
+app.use('/articles', articleRouter)
+
 app.get('/', (req, res)=>{
-    res.render('index')
+    const articles = [{
+        title: 'Test Article',
+        createdAt: new Date(),
+        description: 'Test description'
+    }]
+    res.render('articles/index', { articles: articles })
 })
 
 /////////////////////////////////////
@@ -60,6 +70,9 @@ app.use(
   })
 );
 
+
+// tell the app to use the articleRouter
+app.use('/articles', articleRouter) //every route will be added to the end of /articles
 /////////////////////////////////////
 // App Listener
 /////////////////////////////////////
