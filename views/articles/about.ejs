@@ -5,7 +5,38 @@
 <body>
           <!-- THE HEADER TAG PARTIAL -->
           <%- include("../partials/header") %>
-
+            <main>
+              <div class="container py-4">
+                <header class="pb-3 mb-4 border-bottom">
+                    <span class="fs-4">About Markdown Dev</span>
+                </header>
+            
+                <div class="p-5 mb-4 bg-light rounded-3">
+                  <div class="container-fluid py-5">
+                    <h1 class="display-5 fw-bold">Markdown Dev</h1>
+                    <p class="col-md-8 fs-4">Markdown Dev is a Bootstrap-styled markdown blog created using Node.js & Express that features full CRUD functionality using a MongoDB database. This site combines my appreciation for well-written internet content and technology.</p>
+                    <a href="https://jamieroszel.com" target="_blank"><button class="btn btn-primary btn-lg" type="button">Check out my personal page</button></a>
+                  </div>
+                </div>
+            
+                <div class="row align-items-md-stretch">
+                  <div class="col-md-6">
+                    <div class="h-100 p-5 text-white bg-dark rounded-3">
+                      <h2>About Markdown</h2>
+                      <p>Markdown is a lightweight markup language, created by John Gruber and Aaron Swartz in 2004. It is used widely across the internet due to its "easy-to-read and easy-to-write plain text format."</p>
+                      <a href="https://daringfireball.net/projects/markdown/syntax#philosophy" target="_blank"><button class="btn btn-outline-light" type="button">Check out more at Daring Fireball</button></a>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="h-100 p-5 bg-light border rounded-3">
+                      <h2>Technology Used</h2>
+                      <p>This site is built using Node.js and Express. Data is created, read, updated, and deleted from a MongoDB database. Check out more at MongoDB.</p>
+                      <a href="https://www.mongodb.com/" target="_blank"><button class="btn btn-outline-secondary" type="button">Check out MongoDB</button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </main>
           <!-- THE HEAD TAG PARTIAL -->
           <%- include("../partials/footer") %>
 </body>
