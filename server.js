@@ -1,4 +1,4 @@
-// IMPORT EXPRESS
+// IMPORT EXPRESS, which actually sets up the server
 const express = require("express");
 // IMPORT DATABASE CONNECTION
 const mongoose = require("./db/connection");
@@ -21,13 +21,11 @@ const session = require("express-session"); // create session cookies
 const connect = require("connect-mongodb-session")(session) // store cookies in mongo
 
 /////////////////////////////////////
-// Create Express Application Object
+// Create Express Application Object This allows express to be called as a function.
 /////////////////////////////////////
-
 const app = express();
-
 /////////////////////////////////////
-// Set the View Engine
+// Set the View Engine This view engine will convert EJS into HTML. 
 /////////////////////////////////////
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }))

@@ -5,7 +5,7 @@
 
 
 ## Project Summary
-
+The main page features a listing of all articles. Clicking 'Read More' will take you to the article itself. All articles are written in markdown format, so they're easy to edit and are easily readable across all browsers. The markdown is then automatically converted to HTML. The URL paths are updated with the title of the article. 
 
 
 ## Technology Used
